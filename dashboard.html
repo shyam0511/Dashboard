@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="dashboard-row">
+      <!-- First row of boxes -->
+      <div class="dashboard-box">
+        <h3>Total Revenue</h3>
+        <p>401,892</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Total Revenue</h3>
+        <p>401,892</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Total Revenue</h3>
+        <p>401,892</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Total Revenue</h3>
+        <p>401,892</p>
+      </div>
+      
+      <!-- Add other boxes here -->
+    </div>
+    <div class="dashboard-row">
+      <!-- Second row of boxes -->
+      <div class="dashboard-box">
+        <h3>Outstanding Amount</h3>
+        <p>110,987</p>
+      </div>
+      <!-- Add other boxes here -->
+      <div class="dashboard-box">
+        <h3>Outstanding Amount</h3>
+        <p>110,987</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Outstanding Amount</h3>
+        <p>110,987</p>
+      </div>
+      <div class="dashboard-box">
+        <h3>Outstanding Amount</h3>
+        <p>110,987</p>
+      </div>
+    </div>
+
+    <!-- Bar charts -->
+    <div class="charts-container">
+      <div class="chart-box">
+        <h2>Revenue By Job Location</h2>
+        <canvas id="chart1" width="400" height="300"></canvas>
+      </div>
+      <div class="chart-box">
+        <h2>Revenue By Job Type</h2>
+        <canvas id="chart2" width="400" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Data for the first chart (Revenue By Job Location)
+const data1 = {
+    labels: ['Mumbai', 'Bangalore', 'Hyderabad', 'Pune', 'Noida', 'Kolkata'],
+    datasets: [{
+      label: 'Revenue By Job Location',
+      data: [80000, 60000, 50000, 40000, 30000, 20000],
+      backgroundColor: 'green'
+    }]
+  };
+  
+  // Data for the second chart (Revenue By Job Type)
+  const data2 = {
+    labels: ['Plumbing', 'Bid Work', 'Replacement HWT', 'Maintenance', 'Material Sale'],
+    datasets: [{
+      label: 'Revenue By Job Type',
+      data: [70000, 50000, 30000, 20000, 10000],
+      backgroundColor: 'green'
+    }]
+  };
+  
+  // Context for the charts
+  const ctx1 = document.getElementById('chart1').getContext('2d');
+  const ctx2 = document.getElementById('chart2').getContext('2d');
+  
+  // Create the charts
+  const chart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: data1,
+    options: {
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: 'Revenue'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Location'
+          }
+        }
+      }
+    }
+  });
+  
+  const chart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: data2,
+    options: {
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: 'Job Type'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Revenue'
+          }
+        }
+      }
+    }
+  });
+  
+  </script>
+</body>
+</html>
